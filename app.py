@@ -4,15 +4,13 @@ from shiny import App, render, ui
 import ui as pages
 import logic
 
-# UI z osobnego pliku
 app_ui = pages.app_ui()
 
 def server(input, output, session):
-    # stan i logika z osobnego pliku
+
     history, chosen_topic = logic.init_state()
     logic.bind_events(input, history, chosen_topic)
 
-    # renderer ekranu: wybiera funkcję UI na podstawie aktualnego stanu
     @output
     @render.ui
     def screen():
