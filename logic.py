@@ -1,7 +1,7 @@
 from shiny import reactive, ui
 
 def init_state():
-    #Inicjalizacja stanu gry
+
     history = reactive.Value(["welcome"])
     chosen_topic = reactive.Value(None)
     return history, chosen_topic
