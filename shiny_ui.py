@@ -1,8 +1,11 @@
 from shiny import ui
 
 def app_ui():
+# how to main window looks like, this is present on all screens
+# throughout the game
     return ui.page_fluid(
-        ui.h2("bla bla gra na zaliczenie"),
+        ui.h1(ui.strong("🧬 Publish or Perish")),
+        ui.h2("A Peer-Review Simulation Game"),
         ui.output_ui("screen"),
     )
 
@@ -21,7 +24,8 @@ def screen_welcome():
         ),
 
         ui.div(
-            ui.input_action_button("next0", "Next"),
+            ui.input_action_button("rules_btn", "Rules"),
+            ui.input_action_button("next0", "Let's begin!"),
             style="text-align: center;"
         )
     )
@@ -54,10 +58,8 @@ def screen_topic(can_back: bool):
         )        
     )
 
-
 def screen_step1(can_back: bool, chosen_topic: str | None):
     return ui.div(
-        
         ui.h3("Krok 1"),
         ui.p(f"Wybrany temat: {chosen_topic}"),
         ui.p("Wybierz 1 lub 2."),

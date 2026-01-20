@@ -1,7 +1,7 @@
 from pathlib import Path
 from shiny import App, render, ui
 
-import ui as pages
+import shiny_ui as pages
 import logic
 
 app_ui = pages.app_ui()
