@@ -1,11 +1,30 @@
 from shiny import reactive, ui
 
-INTRO_ORDER = ["intro1", "intro2", "intro3", "intro4", "intro5", "intro6", "intro7", "intro8"]
+INTRO_ORDER = [f"intro{x}" for x in range(1, 9)]
+
+
+GAME_FLOW = {
+    "step1": ("pick1",  "step2"), 
+    "step2": ("pick4",  "step3"),
+    "step3": ("pick5",  "step4"),
+    "step4": ("pick8",  "step5"),
+    "step5": ("pick9",  "step6"),
+    "step6": ("pick12", "step7"),
+    "step7": ("pick13", "step8"),
+    "step8": ("pick16", "success"),
+}
+
+BAD_PICKS = [
+    "pick2", "pick3",
+    "pick6", "pick7",
+    "pick10", "pick11",
+    "pick14", "pick15",
+]
 
 def init_state():
     history = reactive.Value(["intro1"])
     chosen_topic = reactive.Value(None)
-    intro_seen = reactive.Value(False) #check for intro
+    intro_seen = reactive.Value(False)
     return history, chosen_topic, intro_seen
 
 def current(history):
@@ -27,50 +46,44 @@ def pop(history):
 
 def reset(history, chosen_topic, intro_seen):
     chosen_topic.set(None)
-    if intro_seen.get():
-        history.set(["main"])
-    else:
-        history.set(["intro1"])
+    history.set(["welcome"])
 
-#Event handlers
 def bind_events(input, history, chosen_topic, intro_seen):
-    #next button
+    def reject():
+        ui.notification_show(
+            "Peer review: rejected (wrong choice). Try again.",
+            type="error",
+            duration=3,
+        )
+
     @reactive.effect
     @reactive.event(input.next0)
     def next0():
         s = current(history)
-        #intro flow
+
         if s in INTRO_ORDER:
             i = INTRO_ORDER.index(s)
             if i < len(INTRO_ORDER) - 1:
                 push(history, INTRO_ORDER[i + 1])
             else:
                 intro_seen.set(True)
-                push(history, "main")
+                push(history, "welcome")
             return
-        
+
+        if s == "welcome":
+            push(history, "main")
+            return
+
     @reactive.effect
     @reactive.event(input.back)
     def back():
-        if current(history) in INTRO_ORDER:
+        s = current(history)
+        if s in INTRO_ORDER:
             return
-        pop(history)
+        if len(history.get()) <= 1:
+            return
 
-    @reactive.effect
-    @reactive.event(input.rules_btn)
-    def show_rules():
-        ui.modal_show(
-            ui.modal(
-                ui.h3("Game rules"),
-                ui.div(
-                    ui.p("1. Choose the desired topic of your paper."),
-                    ui.p("2. During each step you will have to make decisions regarding the course of your work."),
-                    ui.p("3. Watch out for the evil peer review!"),
-                    ui.p("4. Make correct choices to publish successfully."),
-                    ui.p("5. Good luck!"),
-                ),
-            )
-        )
+        pop(history)
 
     @reactive.effect
     @reactive.event(input.go_topic)
@@ -84,32 +97,40 @@ def bind_events(input, history, chosen_topic, intro_seen):
         push(history, "step1")
 
     @reactive.effect
-    @reactive.event(input.pick1)
-    def pick1_ok():
-        push(history, "step2")
-
-    @reactive.effect
-    @reactive.event(input.pick2)
-    def pick2_bad():
-        ui.notification_show(
-            "Peer review: rejected (zła opcja). Spróbuj ponownie.",
-            type="error",
-            duration=3,
+    @reactive.event(input.rules_btn)
+    def show_rules():
+        ui.modal_show(
+            ui.modal(
+                ui.h3("Game rules"),
+                ui.div(
+                    ui.p("1. Choose the desired topic of your paper."),
+                    ui.p("2. In each step you must make a decision."),
+                    ui.p("3. Wrong decisions get rejected by peer review."),
+                    ui.p("4. Make the correct choices to publish successfully."),
+                )
+            )
         )
 
-    @reactive.effect
-    @reactive.event(input.pick4)
-    def pick4_ok():
-        push(history, "success")
+    for step, (good_pick, next_step) in GAME_FLOW.items():
+        btn = getattr(input, good_pick, None)
+        if btn is None:
+            continue
 
-    @reactive.effect
-    @reactive.event(input.pick3)
-    def pick3_bad():
-        ui.notification_show(
-            "Peer review: rejected (zła opcja). Spróbuj ponownie.",
-            type="error",
-            duration=3,
-        )
+        @reactive.effect
+        @reactive.event(btn)
+        def _ok(step=step, next_step=next_step):
+            if current(history) == step:
+                push(history, next_step)
+
+    for pick in BAD_PICKS:
+        btn = getattr(input, pick, None)
+        if btn is None:
+            continue
+
+        @reactive.effect
+        @reactive.event(btn)
+        def _bad(pick=pick):
+            reject()
 
     @reactive.effect
     @reactive.event(input.restart)

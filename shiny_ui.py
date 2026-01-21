@@ -61,7 +61,6 @@ def screen_welcome():
                 color: #010A0F;
             """
         ),
-
         ui.div(
             ui.input_action_button("next0", "START"),
             style="text-align: center;"
@@ -614,6 +613,378 @@ def screen_step2(can_back: bool, chosen_topic: str | None):
                     """
                 ),
                 ui.input_action_button("pick4", "4"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+
+def screen_step3(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 3"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 5 and option 6."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick5", "5"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick6", "6"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+
+def screen_step4(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 4"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 7 and option 8."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick7", "7"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick8", "8"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+    
+def screen_step5(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 5"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 9 and option 10."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick9", "9"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick10", "10"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+
+def screen_step6(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 6"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 11 and option 12."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick11", "11"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick12", "12"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+
+def screen_step7(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 7"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 13 and option 14."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick13", "13"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick14", "14"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            style="""
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                justify-content: center;
+                margin: 40px auto;
+                max-width: 700px;
+            """
+        ),
+        back_btn(can_back),
+        style="text-align: center; min-height: 100vh;"
+    )
+
+def screen_step8(can_back: bool, chosen_topic: str | None):
+    return ui.div(
+        ui.h3("Step 8"),
+        ui.p(f"Chosen topic: {chosen_topic}"),
+        ui.p("Choose between option 15 and option 16."),
+
+        ui.div(
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumber_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick15", "15"),
+                style="""
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 25px;
+                """
+            ),
+            ui.div(
+                ui.div(
+                    ui.img(
+                        src="dumb_cat.jpg",
+                        style="max-width: 250px; height: 250px;"
+                    ),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
+                ui.input_action_button("pick16", "16"),
                 style="""
                     display: flex;
                     flex-direction: column;
