@@ -13,6 +13,61 @@ def back_btn(can_back: bool):
     return ui.input_action_button("back", "<= Back") if can_back else None
 
 #Screen builders
+def screen_welcome():
+    return ui.div(
+        ui.div(
+            ui.h1(
+                "WELCOME",
+                style="""
+                    font-size: 130px;
+                    font-weight: 300;
+                    margin: 0;
+                """
+            ),
+            ui.h3(
+                "This game was developed as the final project for the",
+                style="""
+                    font-size: 20px;
+                    font-weight: 150;
+                    line-height: 1.1;   /*vertical space between lines of the text*/
+                    margin: 0;  /*Deleting the margin of the header*/
+                """
+            ),
+            ui.h3(
+                "Basic Toolkit for Bioinformatics Research course (2025/2026).",
+                style="""
+                    font-size: 20px;
+                    font-weight: 150;
+                    line-height: 1.1;   /*vertical space between lines of the text*/
+                    margin: 0;  /*Deleting the margin of the header*/
+                """
+            ),
+            ui.h2(
+                "To begin click here:",
+                style="""
+                    font-size: 25px;
+                    font-weight: 170;
+                    line-height: 1.1;   /*vertical space between lines of the text*/
+                    margin: 13px;  /*Deleting the margin of the header*/
+                    margin-top: 16vh;   /*Adjusting the posision vertically*/
+                """
+            ),
+            style="""
+                display: flex;
+                flex-direction: column; /*So the texts can be under each other*/
+                justify-content: center;    /*Centering the header horizontally*/
+                text-align: center;
+                margin-top: 18vh;   /*Adjusting the posision vertically*/
+                color: #010A0F;
+            """
+        ),
+
+        ui.div(
+            ui.input_action_button("next0", "START"),
+            style="text-align: center;"
+        )
+    )
+    
 def screen_main():
     return ui.div(
         ui.div(
