@@ -1,11 +1,13 @@
 from shiny import reactive, ui
 
-def init_state():
-    history = reactive.Value(["welcome"])
-    chosen_topic = reactive.Value(None)
-    return history, chosen_topic
+INTRO_ORDER = ["intro1", "intro2", "intro3", "intro4", "intro5", "intro6", "intro7", "intro8"]
 
-#History helpers
+def init_state():
+    history = reactive.Value(["intro1"])
+    chosen_topic = reactive.Value(None)
+    intro_seen = reactive.Value(False) #check for intro
+    return history, chosen_topic, intro_seen
+
 def current(history):
     return history.get()[-1]
 
@@ -23,23 +25,37 @@ def pop(history):
         h.pop()
         history.set(h)
 
-def reset(history, chosen_topic):
-    history.set(["welcome"])
+def reset(history, chosen_topic, intro_seen):
     chosen_topic.set(None)
+    if intro_seen.get():
+        history.set(["main"])
+    else:
+        history.set(["intro1"])
 
 #Event handlers
-def bind_events(input, history, chosen_topic):
-
+def bind_events(input, history, chosen_topic, intro_seen):
+    #next button
     @reactive.effect
     @reactive.event(input.next0)
-    def to_topic():
-        push(history, "topic")
-
+    def next0():
+        s = current(history)
+        #intro flow
+        if s in INTRO_ORDER:
+            i = INTRO_ORDER.index(s)
+            if i < len(INTRO_ORDER) - 1:
+                push(history, INTRO_ORDER[i + 1])
+            else:
+                intro_seen.set(True)
+                push(history, "main")
+            return
+        
     @reactive.effect
     @reactive.event(input.back)
     def back():
+        if current(history) in INTRO_ORDER:
+            return
         pop(history)
-        
+
     @reactive.effect
     @reactive.event(input.rules_btn)
     def show_rules():
@@ -53,9 +69,13 @@ def bind_events(input, history, chosen_topic):
                     ui.p("4. Make correct choices to publish successfully."),
                     ui.p("5. Good luck!"),
                 ),
-                easy_close=True,
             )
         )
+
+    @reactive.effect
+    @reactive.event(input.go_topic)
+    def go_topic():
+        push(history, "topic")
 
     @reactive.effect
     @reactive.event(input.topic_ok)
@@ -94,4 +114,4 @@ def bind_events(input, history, chosen_topic):
     @reactive.effect
     @reactive.event(input.restart)
     def restart():
-        reset(history, chosen_topic)
+        reset(history, chosen_topic, intro_seen)
