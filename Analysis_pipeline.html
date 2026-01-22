@@ -160,7 +160,7 @@ loaded via a namespace (and not attached):
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Breast Invasive Carcinoma (BRCA) remains one of the most diagnosed cancers worldwide. Integrating multi-omics data—specifically Transcriptomics for gene expression and Epigenomics with DNA Methylation—is key to understanding the molecular mechanisms driving the disease.</p>
-<p>This pipeline explores the relationship between DNA methylation and gene expression for the tumor suppressor gene RASSF1.We use a synthetic dataset that mimics TCGA (The Cancer Genome Atlas) data patterns. The analysis workflow is designed to be reproducible and can be adapted to process actual TCGA data when network constraints allow</p>
+<p>This pipeline explores the relationship between DNA methylation and gene expression for the tumor suppressor gene RASSF1.We use a synthetic dataset that is inspired by TCGA (The Cancer Genome Atlas) data patterns. The analysis workflow is designed to be reproducible and can be adapted to process actual TCGA data when network constraints allow</p>
 <p>Analysis Objective: Create a reproducible pipeline using TCGAbiolinks to download TCGA data, process it, and visualize the relationship between DNA methylation and gene expression for RASSF1 in BRCA samples.</p>
 </section>
 <section id="data-download-and-preparation" class="level1">
@@ -556,6 +556,10 @@ In our case - simple generated data - the heatmap is far from optimal or needed.
 <h3 class="anchored" data-anchor-id="key-observations"><strong>Key Observations:</strong></h3>
 <p>Mimicing real life state and data tendency in our dataset, RASSF1 shows lower expression levels in tumor samples compared to normal tissue.Tumor samples exhibit higher promoter methylation levels compared to normal tissue. We observe a negative correlation between methylation and expression, which aligns with the biological hypothesis that promoter hypermethylation may contribute to gene silencing. RASSF1 is a known tumor suppressor gene involved in cell cycle regulation and apoptosis. Epigenetic silencing through promoter hypermethylation has been reported in various cancers, including breast cancer. The patterns observed in our synthetic dataset reflect these established biological mechanisms.</p>
 <p><strong>AI Disclosure:</strong> Generative AI (Google Gemini via JetBrains AI Assistant) was utilized in the preparation of this pipeline. Specifically, the tool was prompted to enhance the visual clarity of pre-existing exploratory plots. The AI’s contribution was limited to aesthetic refinements, including the implementation of the theme_minimal() framework and the addition of descriptive captions detailing methodologies and data sources</p>
+<p><strong>References:</strong></p>
+<p>da Costa Prando E, Cavalli LR, Rainho CA. Evidence of epigenetic regulation of the tumor suppressor gene cluster flanking RASSF1 in breast cancer cell lines. Epigenetics. 2011 Dec;6(12):1413-24. doi: 10.4161/epi.6.12.18271. PMID: 22139571; PMCID: PMC3256331.</p>
+<p><a href="https://www.cancerimagingarchive.net/collection/tcga-brca/" class="uri">https://www.cancerimagingarchive.net/collection/tcga-brca/</a></p>
+<p>Vivek Gupta, Prerna Agarwal, Prajakta Deshpande, Impact of RASSF1A gene methylation on clinico-pathological features of tumor and non-tumor tissue of breast cancer, Annals of Diagnostic Pathology, Volume 52, 2021, 151722, ISSN 1092-9134, <a href="https://doi.org/10.1016/j.anndiagpath.2021.151722." class="uri">https://doi.org/10.1016/j.anndiagpath.2021.151722.</a></p>
 </section>
 </section>
 
