@@ -52,7 +52,7 @@ To run this project locally, you need R and the required packages.
 
 ## Team Contributions
 *   **Franciszek Karpiński**: UI developement, overall logic developement, code developement
-*   **Natalia Charzewska**:
+*   **Natalia Charzewska**: UI visual design, interface aesthetics improvement, preparation of visual assets
 *   **Agata Leszczak**: Pipeline developement, Data Visualization & Documentation**. Made the R analysis code, created synthetic data, implemented statistical tests (Wilcoxon, Spearman), and generated all figures (boxplots, heatmap, scatter plot, UpSet plot). Logic developement.
 
 ## Future improvements
