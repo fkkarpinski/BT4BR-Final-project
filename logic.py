@@ -95,8 +95,8 @@ def bind_events(input, history, intro_seen):
             ui.modal(
                 ui.h3("Game rules"),
                 ui.div(
-                    ui.p("1. Choose the desired topic of your paper."),
-                    ui.p("2. In each step you must make a decision."),
+                    ui.p("1. You are a bioinformatician and your goal is to conduct reproducible research."),
+                    ui.p("2. In each step you must make a decision on what to include."),
                     ui.p("3. Wrong decisions get rejected by peer review."),
                     ui.p("4. Make the correct choices to publish successfully."),
                 )
