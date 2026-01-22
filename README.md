@@ -1,7 +1,7 @@
 # Interactive game project
 
 ## Project Idea
-An interactive  application that simulates the scientific publication pipeline for bioinformatics research. Using a simulated dataset based on The Cancer Genome Atlas (TCGA) patterns, it guides a user—playing the role of a researcher—through the steps of a multi-omics analysis: from initial data exploration and testing to visualization and final publication.
+An interactive  application that simulates the scientific publication pipeline for bioinformatics research. Using a simulated dataset based on The Cancer Genome Atlas (TCGA) patterns, it guides a user—playing the role of a researcher—through the steps of a multi-omics analysis: from initial data exploration and testing to visualization and final publication. The game ends in the creation of actual analysis, that can be later viewed.
 
 ## Core Features & Principle of Operation
 The application is a narrative-driven, single-choice interface structured with a storyline of a researcher in mind.
@@ -41,9 +41,9 @@ To run this project locally, you need R and the required packages.
  *   **For reproducibility**: The code includes `set.seed(42)` and `sessionInfo()` to ensure identical results and environment details.
 
 4.  **Run the Interactive Interface (Python)**:
-    *   Ensure you have Python 3.8+ installed.
-    *   Install the required library: `pip install flet`
-    *   Navigate to the project directory and run: `python ui.py`
+    *   Ensure you have all the dependencies from file requirements.txt
+    *   Navigate to the project directory and run: `shiny run app.py`
+    *   Open the link from the console
 
 ## How to Use the Interactive App
 1.  Launch `ui.py`.
