@@ -2,30 +2,34 @@ from shiny import reactive, ui
 
 INTRO_ORDER = [f"intro{x}" for x in range(1, 9)]
 
-
 GAME_FLOW = {
     "step1": ("pick1",  "step2"), 
-    "step2": ("pick4",  "step3"),
+    "step2": ("pick3",  "step3"),
     "step3": ("pick5",  "step4"),
     "step4": ("pick8",  "step5"),
-    "step5": ("pick9",  "step6"),
+    "step5": ("pick10",  "step6"),
     "step6": ("pick12", "step7"),
     "step7": ("pick13", "step8"),
-    "step8": ("pick16", "success"),
+    "step8": ("pick16", "step9"),
+    "step9": ("pick18",  "step10"),
+    "step10": ("pick19", "step11"),
+    "step11": ("pick22", "step12"),
+    "step12": ("pick23", "success"),
 }
 
 BAD_PICKS = [
-    "pick2", "pick3",
+    "pick2", "pick4",
     "pick6", "pick7",
-    "pick10", "pick11",
+    "pick9", "pick11",
     "pick14", "pick15",
+    "pick17", "pick20",
+    "pick21", "pick24",
 ]
 
 def init_state():
     history = reactive.Value(["intro1"])
-    chosen_topic = reactive.Value(None)
     intro_seen = reactive.Value(False)
-    return history, chosen_topic, intro_seen
+    return history, intro_seen
 
 def current(history):
     return history.get()[-1]
@@ -44,11 +48,10 @@ def pop(history):
         h.pop()
         history.set(h)
 
-def reset(history, chosen_topic, intro_seen):
-    chosen_topic.set(None)
+def reset(history, intro_seen):
     history.set(["welcome"])
 
-def bind_events(input, history, chosen_topic, intro_seen):
+def bind_events(input, history, intro_seen):
     def reject():
         ui.notification_show(
             "Peer review: rejected (wrong choice). Try again.",
@@ -86,17 +89,6 @@ def bind_events(input, history, chosen_topic, intro_seen):
         pop(history)
 
     @reactive.effect
-    @reactive.event(input.go_topic)
-    def go_topic():
-        push(history, "topic")
-
-    @reactive.effect
-    @reactive.event(input.topic_ok)
-    def topic_ok():
-        chosen_topic.set(input.topic_select())
-        push(history, "step1")
-
-    @reactive.effect
     @reactive.event(input.rules_btn)
     def show_rules():
         ui.modal_show(
@@ -110,6 +102,12 @@ def bind_events(input, history, chosen_topic, intro_seen):
                 )
             )
         )
+
+    @reactive.effect
+    @reactive.event(input.start_game)
+    def start_new_paper():
+        if current(history) == "main":
+            push(history, "step1")
 
     for step, (good_pick, next_step) in GAME_FLOW.items():
         btn = getattr(input, good_pick, None)
@@ -135,4 +133,4 @@ def bind_events(input, history, chosen_topic, intro_seen):
     @reactive.effect
     @reactive.event(input.restart)
     def restart():
-        reset(history, chosen_topic, intro_seen)
+        reset(history, intro_seen)
