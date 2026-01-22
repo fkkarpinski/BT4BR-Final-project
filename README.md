@@ -53,7 +53,7 @@ To run this project locally, you need R and the required packages.
 4.  Your choices will influence the feedback you receive and lead you to the final, correctly visualized publication pipeline.
 
 ## Team Contributions
-*   **Franciszek Karpiński**: 
+*   **Franciszek Karpiński**: UI developement, overall logic developement, code developement
 *   **Natalia Charzewska**:
 *   **Agata Leszczak**: Pipeline developement, Data Visualization & Documentation**. Made the R analysis code, created synthetic data, implemented statistical tests (Wilcoxon, Spearman), and generated all figures (boxplots, heatmap, scatter plot, UpSet plot). 
 
