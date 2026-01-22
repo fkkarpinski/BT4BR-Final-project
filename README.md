@@ -1,10 +1,10 @@
 # Interactive game project
 
 ## Project Idea
-An interactive  application that simulates the scientific publication pipeline for bioinformatics research. Using a simulated dataset based on The Cancer Genome Atlas (TCGA) patterns, it guides a user—playing the role of a researcher—through the steps of a multi-omics analysis: from initial data exploration and testing to visualization and final publication. The core analysis focuses on the epigenetic silencing of the tumor suppressor gene **RASSF1** in Breast Invasive Carcinoma (BRCA).
+An interactive  application that simulates the scientific publication pipeline for bioinformatics research. Using a simulated dataset based on The Cancer Genome Atlas (TCGA) patterns, it guides a user—playing the role of a researcher—through the steps of a multi-omics analysis: from initial data exploration and testing to visualization and final publication.
 
 ## Core Features & Principle of Operation
-The application is a narrative-driven, single-choice interface structured like a scientific paper:
+The application is a narrative-driven, single-choice interface structured with a storyline of a researcher in mind.
 
 ## Data Description
 This project uses a **synthetic dataset** designed to mimic real-world patterns from **The Cancer Genome Atlas Breast Invasive Carcinoma (TCGA-BRCA)** project.
@@ -23,7 +23,7 @@ This project uses a **synthetic dataset** designed to mimic real-world patterns 
     *   **RASSF1** (Ras Association Domain Family Member 1) is a crucial **tumor suppressor gene**. It is involved in regulating cell cycle progression, apoptosis (programmed cell death), and maintaining genomic stability.
     *   In many cancers, including breast cancer, the **promoter region** of RASSF1 is often **hypermethylated**. This epigenetic modification acts like a "switch" that turns the gene off, silencing its expression and allowing cancer cells to proliferate uncontrollably. This pipeline investigates this exact relationship.
 
-## Installation & Setup (Step-by-Step)
+## Installation & Setup
 To run this project locally, you need R and the required packages.
 
 1.  **Prerequisites**:
@@ -38,8 +38,7 @@ To run this project locally, you need R and the required packages.
 
 3.  **Run the Analysis Pipeline**:
     *   Clone this repository or download the `analysis_pipeline.Rmd` (R Markdown) file.
-    *   Open it in RStudio and click **"Knit"** to generate a complete HTML/PDF report of the analysis.
-    *   **For reproducibility**: The code includes `set.seed(42)` and `sessionInfo()` to ensure identical results and environment details.
+ *   **For reproducibility**: The code includes `set.seed(42)` and `sessionInfo()` to ensure identical results and environment details.
 
 4.  **Run the Interactive Interface (Python)**:
     *   Ensure you have Python 3.8+ installed.
@@ -55,5 +54,5 @@ To run this project locally, you need R and the required packages.
 ## Team Contributions
 *   **Franciszek Karpiński**: UI developement, overall logic developement, code developement
 *   **Natalia Charzewska**:
-*   **Agata Leszczak**: Pipeline developement, Data Visualization & Documentation**. Made the R analysis code, created synthetic data, implemented statistical tests (Wilcoxon, Spearman), and generated all figures (boxplots, heatmap, scatter plot, UpSet plot). 
+*   **Agata Leszczak**: Pipeline developement, Data Visualization & Documentation**. Made the R analysis code, created synthetic data, implemented statistical tests (Wilcoxon, Spearman), and generated all figures (boxplots, heatmap, scatter plot, UpSet plot). Logic developement.
 
