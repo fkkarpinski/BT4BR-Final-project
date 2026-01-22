@@ -516,7 +516,7 @@ def screen_step1(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick1", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick1", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -536,7 +536,7 @@ def screen_step1(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick2", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick2", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -737,7 +737,7 @@ def screen_step4(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick7", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick7", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -757,7 +757,7 @@ def screen_step4(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick8", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick8", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -810,7 +810,7 @@ def screen_step5(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick9", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick9", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -830,7 +830,7 @@ def screen_step5(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick10", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick10", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -862,14 +862,12 @@ def screen_step6(can_back: bool):
         ui.div(
             ui.div(
                 ui.div(
-                    ui.img(src="picture_q61.jpg", style="max-height: 220px; width: auto;"),
+                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
                     style="""
                         height: 220px;
-                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin: 10px;
                     """
                 ),
                 ui.p(
@@ -878,7 +876,7 @@ def screen_step6(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 75px;
+                        height: 110px;
                         overflow: auto;
                     """
                 ),
@@ -893,14 +891,12 @@ def screen_step6(can_back: bool):
             ),
             ui.div(
                 ui.div(
-                    ui.img(src="picture_q62.jpg", style="max-height: 220px; width: auto; margin-left: 70px;"),
+                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
                     style="""
                         height: 220px;
-                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin: 10px;
                     """
                 ),
                 ui.p(
@@ -909,7 +905,7 @@ def screen_step6(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 75px;
+                        height: 110px;
                         overflow: auto;
                     """
                 ),
@@ -965,7 +961,7 @@ def screen_step7(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick13", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick13", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -985,7 +981,7 @@ def screen_step7(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick14", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick14", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1038,7 +1034,7 @@ def screen_step8(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick15", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick15", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1058,7 +1054,7 @@ def screen_step8(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick16", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick16", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1111,7 +1107,7 @@ def screen_step9(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick17", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick17", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1131,7 +1127,7 @@ def screen_step9(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick18", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick18", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1161,24 +1157,23 @@ def screen_step10(can_back: bool):
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
         ui.div(
-            ui.img(src="picture_q10.jpg", style="max-height: 250px; width: auto;"),
-            style="""
-                height: 280px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 20px auto 10px auto;
-            """
-        ),
-        ui.div(
             ui.div(
+                ui.div(
+                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
                 ui.p(
                     "Use UpSet plot as it is more read-friendly and supports bigger sets of data.",
                     style="""
                         margin: 0;
-                        max-width: 300px;
+                        max-width: 260px;
                         white-space: pre-line;
-                        height: 75px;
+                        height: 110px;
                         overflow: auto;
                     """
                 ),
@@ -1192,13 +1187,22 @@ def screen_step10(can_back: bool):
                 """
             ),
             ui.div(
+                ui.div(
+                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    style="""
+                        height: 220px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    """
+                ),
                 ui.p(
                     "Draw Venn diagram - reading from overlapping circles is easier and you can even colour them differently.",
                     style="""
                         margin: 0;
-                        max-width: 300px;
+                        max-width: 260px;
                         white-space: pre-line;
-                        height: 75px;
+                        height: 110px;
                         overflow: auto;
                     """
                 ),
@@ -1216,9 +1220,8 @@ def screen_step10(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 20px auto 40px auto;
+                margin: 40px auto;
                 max-width: 700px;
-                margin-top: 30px;
             """
         ),
         back_btn(can_back),
@@ -1255,7 +1258,7 @@ def screen_step11(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick21", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick21", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1275,7 +1278,7 @@ def screen_step11(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick22", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick22", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1325,7 +1328,7 @@ def screen_step12(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick23", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick23", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1354,7 +1357,7 @@ def screen_step12(can_back: bool):
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick24", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick24", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -1387,6 +1390,7 @@ def screen_success(can_back: bool):
         ),
         ui.div(
             ui.input_action_button("restart", "Back to main menu"),
+            ui.download_button("download_pdf", "Download report (PDF)", class_="btn btn-success"),
             style="text-align: center; margin: 20px 0;"
         ),
         style="text-align: center; margin: 20px 0;",
