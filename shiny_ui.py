@@ -1016,7 +1016,7 @@ def screen_step8(can_back: bool):
         ),
 
         ui.div(
-            ui.img(src="dumber_cat.jpg", style="max-width: 280px; height: 280px;"),
+            ui.img(src="picture_q8.jpg", style="max-height: 280px; width: auto;"),
             style="""
                 height: 300px;
                 display: flex;
@@ -1034,7 +1034,7 @@ def screen_step8(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 29px;
                         overflow: auto;
                     """
                 ),
@@ -1054,7 +1054,7 @@ def screen_step8(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 29px;
                         overflow: auto;
                     """
                 ),
@@ -1074,6 +1074,7 @@ def screen_step8(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 40px auto;
                 max-width: 700px;
+                margin-top: 30px;
             """
         ),
 
