@@ -1,0 +1,350 @@
+---
+title: "TCGA-BRCA Data Analysis: RASSF1 Gene Expression and Methylation"
+format: html
+editor: visual
+---
+
+```{r}
+library(dplyr) # Data manipulation 
+library(ggplot2) # Data visualization 
+library(tidyr) # Data tidying 
+library(patchwork) # Combine plots 
+library(ggpubr) #for boxplots
+```
+
+```{r}
+sessionInfo()
+```
+
+# Introduction
+
+Breast Invasive Carcinoma (BRCA) remains one of the most diagnosed cancers worldwide. Integrating multi-omics data—specifically Transcriptomics for gene expression and Epigenomics with DNA Methylation—is key to understanding the molecular mechanisms driving the disease.
+
+This pipeline explores the relationship between DNA methylation and gene expression for the tumor suppressor gene RASSF1.We use a synthetic dataset that mimics TCGA (The Cancer Genome Atlas) data patterns. The analysis workflow is designed to be reproducible and can be adapted to process actual TCGA data when network constraints allow
+
+Analysis Objective: Create a reproducible pipeline using TCGAbiolinks to download TCGA data, process it, and visualize the relationship between DNA methylation and gene expression for RASSF1 in BRCA samples.
+
+# Data Download and Preparation
+
+For this demonstration, we use synthetic data that simulates patterns observed in TCGA-BRCA. This allows for immediate analysis without lengthy data downloads
+
+```{r}
+
+# Generate synthetic data that mimics TCGA-BRCA patterns for RASSF1
+set.seed(42)  # For reproducibility
+
+# Create synthetic dataset
+analysis_df <- data.frame(
+  Patient_ID = paste0("TCGA-", 
+                      c(paste0("T0", 1:99), "T100",  # Tumor samples
+                        paste0("N0", 1:99), "N100")), # Normal samples
+  Sample_Type = rep(c("Tumor", "Normal"), each = 100),
+  Expression = c(
+    # Tumor samples: lower expression (simulating silencing)
+    rnorm(100, mean = 3.8, sd = 0.6),
+    # Normal samples: higher expression
+    rnorm(100, mean = 6.2, sd = 0.5)
+  ),
+  Methylation = c(
+    # Tumor samples: higher methylation (simulating promotor hypermethylation)
+    rnorm(100, mean = 0.72, sd = 0.08),
+    # Normal samples: lower methylation
+    rnorm(100, mean = 0.28, sd = 0.07)
+  )
+)
+
+# Create a simplified version for plotting
+analysis_df$Sample_Type_Simple <- analysis_df$Sample_Type
+
+
+print(head(analysis_df))
+```
+
+# Exploratory Analysis: Sample Overview
+
+Before diving into complex analyses, let's look at basic summary statistics: and basic visualisation
+
+# Basic summary statistics
+
+```{r}
+summary_stats <- analysis_df %>%
+  group_by(Sample_Type) %>%
+  summarise(
+    n = n(),
+    Mean_Expression = mean(Expression, na.rm = TRUE),
+    SD_Expression = sd(Expression, na.rm = TRUE),
+    Mean_Methylation = mean(Methylation, na.rm = TRUE),
+    SD_Methylation = sd(Methylation, na.rm = TRUE)
+  )
+
+print(summary_stats)
+```
+
+# Analysis of epigenetic patterns
+
+```{r}
+# Expression comparison - tumor vs normal
+p1 <- ggplot(analysis_df, aes(x = Sample_Type_Simple, y = Expression, 
+                              fill = Sample_Type_Simple)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA, width = 0.6) +
+  geom_jitter(width = 0.1, alpha = 0.6, size = 2, shape = 21, color = "black") +
+  stat_compare_means(
+    method = "wilcox.test",
+    label = "p.format",
+    label.y = max(analysis_df$Expression) * 1.05,
+    size = 4
+  ) +
+  scale_fill_manual(values = c("Normal" = "#4DBBD5", "Tumor" = "#E64B35")) +
+  labs(
+    title = "RASSF1 mRNA Expression",
+    subtitle = "Tumor samples show reduced transcript levels",
+    x = "Tissue Type",
+    y = "Log2(Normalized Expression)",
+    caption = "Data: Synthetic TCGA-BRCA.
+    Method: Wilcoxon rank-sum test."
+
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold")
+  )
+
+# Methylation comparison - tumor vs normal
+p2 <- ggplot(analysis_df, aes(x = Sample_Type_Simple, y = Methylation,
+                              fill = Sample_Type_Simple)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA, width = 0.6) +
+  geom_jitter(width = 0.1, alpha = 0.6, size = 2, shape = 21, color = "black") +
+  stat_compare_means(
+    method = "wilcox.test",
+    label = "p.format",
+    label.y = max(analysis_df$Methylation) * 1.05,
+    size = 4
+  ) +
+  scale_fill_manual(values = c("Normal" = "#4DBBD5", "Tumor" = "#E64B35")) +
+  labs(
+    title = "RASSF1 Promoter Methylation",
+    subtitle = "Tumor samples show hypermethylation",
+    x = "Tissue Type",
+    y = "Methylation β-value",
+     caption = "Data: Synthetic TCGA-BRCA.
+    Method: Wilcoxon rank-sum test."
+
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold")
+  )
+
+# Display plots side by side
+(p1 | p2) +
+  plot_annotation(
+    title = "Epigenetic Deregulation of RASSF1 in Breast Cancer",
+    subtitle = "Comparison between tumor and adjacent normal tissue",
+    caption = "β-value: 0 = unmethylated, 1 = fully methylated",
+    theme = theme(plot.title = element_text(face = "bold", size = 16))
+  )
+```
+
+In the boxplots above, we compare the distribution of RASSF1 expression and promoter methylation between Tumor (red) and Normal (blue) tissues. Each point represents an individual patient sample. In the expression plot the vertical axis shows the Log2 normalized expression with a clear downward shift in the Tumor group, indicating (in our case mimicing) that RASSF1 is less active in cancerous tissue. For the methylation plot the y axis shows the Beta value (0 to 1). We see a significant upward shift in the Tumor group, suggesting that the gene's promoter is possibly hypermethylated. The Wilcoxon rank-sum test p-values confirm that these differences are statistically significant.
+
+# Patient-specific epigenetic profiles
+
+```{r}
+# Prepare data for heatmap
+heatmap_data <- analysis_df %>%
+  mutate(
+    Expression_Z  = scale(Expression),
+    Methylation_Z = scale(Methylation)
+  ) %>%
+  select(Patient_ID, Expression_Z, Methylation_Z, Sample_Type_Simple) %>%
+  pivot_longer(
+    cols = c(Expression_Z, Methylation_Z) ,
+      names_to = "Epigenetic_Feature",
+    values_to = "Z_Score"
+  ) %>%
+  mutate(
+    Patient_ID = factor(Patient_ID, levels = unique(Patient_ID)),
+    Epigenetic_Feature = factor(Epigenetic_Feature,
+                               levels = c("Methylation_Z", "Expression_Z"),
+                               labels = c("Promoter Methylation", "Gene Expression"))
+  )
+
+# Create annotated heatmap
+ggplot(heatmap_data, aes(x = Patient_ID, y = Epigenetic_Feature, fill = Z_Score)) +
+  geom_tile(color = "white" , size = 0.5) +
+  facet_grid(~ Sample_Type_Simple, scales = "free_x", space = "free_x") +
+  scale_fill_gradient2(
+     low = "#2166AC", mid = "white", high = "#B2182B",
+    midpoint = 0,
+    name = "Z-score\n(standardized)",
+    limits = c (-2, 2) ,
+    breaks = c(-2, 0,  2),
+    labels = c("Low", "Average", "High")
+  ) +
+  labs(
+     title = "Patient-Specific RASSF1 Epigenetic Profiles",
+    subtitle = "Standardized methylation and expression values across samples",
+    x = "Patient Samples",
+    y = "Epigenetic Feature",
+     caption = "Data: Synthetic TCGA-BRCA. Values standardized to Z-score (mean=0, SD=1)."
+
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+
+axis.text.y = element_text(face = "bold"),
+    strip.text = element_text(face = "bold", size = 11),
+    legend.position = "right",
+    plot.title = element_text(face = "bold", size = 15),
+    panel.grid = element_blank()
+  )
+```
+
+```         
+This heatmap provides a patient-by-patient view of the 200 samples. Each column is an individual patient, and colors represent Z-scores (standardized values). In the Tumor facet (left), the consistent pattern of red (high methylation) over blue (low expression) creates a distinct "epigenetic signature" that is absent in the Normal samples (right).
+In our case - simple generated data - the heatmap is far from optimal or needed. In case of using real data and comparison of many genes - this is the go to plot. 
+```
+
+## **Correlation Analysis**
+
+This plot examines the relationship between promoter methylation and gene expression, which is central to the hypothesis of epigenetic silencing.
+
+```{r}
+
+# Calculate correlation
+spearman_corr <- cor.test(analysis_df$Methylation, analysis_df$Expression,
+                          method = "spearman", exact = FALSE)
+
+ corr_text <- paste0("Spearman ρ = ", round(spearman_corr$estimate, 3),
+                   "\np = ", format.pval(spearman_corr$p.value, digits = 3))
+
+# Create correlation plot
+ggplot(analysis_df, aes(x = Methylation, y = Expression, 
+                        color = Sample_Type_Simple)) +
+   geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, linetype = "dashed") +
+   annotate("text", x = 0.7, y = max(analysis_df$Expression),
+           label = corr_text, hjust = 1, vjust = 1, size = 4) +
+  scale_color_manual(values = c("Normal" = "skyblue", "Tumor" = "salmon")) +
+  labs(
+     title = "RASSF1: Methylation vs Expression Relationship",
+    subtitle = "Spearman correlation analysis",
+    x = "Methylation Beta Value (0 = unmethylated, 1 = fully methylated)",
+    y = "Log2(Expression+1)",
+     color = "Sample Type",
+    caption = "Negative correlation suggests potential epigenetic silencing"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+In the plot above individual data points/patient sample are represented by a dot. Each dot represents one patient sample. Its position on the horizontal axis (X) shows the level of DNA methylation (0 to 1), and its position on the vertical axis (Y) shows the gene expression level. "Normal" (blue) and "Tumor" (salmon). The data clusters (just like we accounted for in it's creation): Tumor samples are mostly in the bottom-right (High Methylation, Low Expression), while Normal samples are in the top-left (Low Methylation, High Expression).With higher methylation we observe lower expression in Tumor cells. We can see the negative correlation in tumor cells from the linear regression.
+
+# UpSet Plot
+
+UpSet plots show intersections between sets.
+
+```{r}
+
+library(UpSetR)
+
+# Define classification thresholds
+methylation_threshold <- 0.5  # Beta > 0.5 = hypermethylated
+expression_threshold <- quantile(
+  analysis_df$Expression[analysis_df$Sample_Type_Simple == "Normal"],
+  0.25,  # Lower quartile of normal samples
+  na.rm = TRUE
+)
+
+# Create binary classification matrix
+binary_matrix <- analysis_df %>%
+  transmute(
+    Is_Tumor = as.integer(Sample_Type_Simple == "Tumor"),
+    Is_Hypermethylated = as.integer(Methylation > methylation_threshold),
+    Is_Silenced = as.integer(Expression < expression_threshold)
+  )
+
+# Generate UpSet plot
+upset(
+  as.data.frame(binary_matrix),
+  sets = c("Is_Tumor","Is_Hypermethylated","Is_Silenced"), 
+  order.by = "freq",
+  main.bar.color = "steelblue",
+  sets.bar.color = "salmon",
+  text.scale = c(1.3, 1.3, 1, 1, 1.5, 1),
+  mainbar.y.label = "Number of Samples in Intersection",
+  sets.x.label = "Total Number of Samples",
+  point.size = 3,
+  line.size = 1
+)
+```
+
+**interpretation**:
+
+Bottom left: Individual set sizes (how many samples are in each category)
+
+Top: Intersection sizes (how many samples share multiple features)
+
+Dots show which sets are included in each intersection
+
+When it comes to set description Is_Hypermethylated describes the Promoter Hypermethylation, IS_Tumor describes the tumor tissue (weather present) and Is_Silenced describes Transcriptional Silencing
+
+# Summary Table: Key Findings
+
+```{r}
+
+# Calculate comprehensive statistics
+findings <- analysis_df %>%
+  group_by(Sample_Type) %>%
+  summarise(
+    `N` = n(),
+    `Mean Expression` = sprintf("%.2f ± %.2f", 
+                                mean(Expression), sd(Expression)),
+    `Mean Methylation` = sprintf("%.2f ± %.2f", 
+                                 mean(Methylation), sd(Methylation)),
+    `Hypermethylated (%)` = sprintf("%.1f%%", 
+                                    100 * mean(Methylation > 0.5)),
+    `Silenced (%)` = sprintf("%.1f%%", 
+                             100 * mean(Expression < expression_threshold)),
+    `Co-occurrence (%)` = sprintf("%.1f%%",
+                                  100 * mean(Methylation > 0.5 & 
+                                             Expression < expression_threshold))
+  ) %>%
+  rename(`Sample Type` = Sample_Type)
+
+# Display results
+cat("## Epigenetic Profile Summary\n\n")
+cat("### Correlation Analysis\n")
+cat(sprintf("Spearman's ρ: %.3f\n", spearman_corr$estimate))
+cat(sprintf("95%% Confidence Interval: [%.3f, %.3f]\n", 
+            spearman_corr$conf.int[1], spearman_corr$conf.int[2]))
+cat(sprintf("Statistical significance: p = %s\n\n", 
+            format.pval(spearman_corr$p.value, digits = 3, eps = 0.001)))
+
+cat("### Comparative Statistics\n")
+print(findings)
+
+# Additional statistical test for group differences
+cat("\n### Statistical Comparisons\n")
+cat("Expression (Tumor vs Normal):\n")
+exp_test <- wilcox.test(Expression ~ Sample_Type, data = analysis_df)
+cat(sprintf("  Wilcoxon rank-sum test: W = %.0f, p = %s\n", 
+            exp_test$statistic, format.pval(exp_test$p.value, digits = 3)))
+
+cat("Methylation (Tumor vs Normal):\n")
+meth_test <- wilcox.test(Methylation ~ Sample_Type, data = analysis_df)
+cat(sprintf("  Wilcoxon rank-sum test: W = %.0f, p = %s\n", 
+            meth_test$statistic, format.pval(meth_test$p.value, digits = 3)))
+```
+
+### **Key Observations:**
+
+Mimicing real life state and data tendency in our dataset, RASSF1 shows lower expression levels in tumor samples compared to normal tissue.Tumor samples exhibit higher promoter methylation levels compared to normal tissue. We observe a negative correlation between methylation and expression, which aligns with the biological hypothesis that promoter hypermethylation may contribute to gene silencing. RASSF1 is a known tumor suppressor gene involved in cell cycle regulation and apoptosis. Epigenetic silencing through promoter hypermethylation has been reported in various cancers, including breast cancer. The patterns observed in our synthetic dataset reflect these established biological mechanisms.
+
+**AI Disclosure:** Generative AI (Google Gemini via JetBrains AI Assistant) was utilized in the preparation of this pipeline. Specifically, the tool was prompted to enhance the visual clarity of pre-existing exploratory plots. The AI’s contribution was limited to aesthetic refinements, including the implementation of the theme_minimal() framework and the addition of descriptive captions detailing methodologies and data sources
