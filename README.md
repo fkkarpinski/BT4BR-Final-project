@@ -47,9 +47,9 @@ To run this project locally, you need R and the required packages.
 
 ## How to Use the Interactive App
 1.  Launch `ui.py`.
-2.  Follow the on-screen narrative. You are a scientist preparing a publication.
+2.  Follow the on-screen narrative. You are a scientist preparing a new project.
 3.  At each decision point, read the context and choose the option (A or B) that represents the **best practice in reproducible bioinformatics research**.
-4.  Your choices will influence the feedback you receive and lead you to the final, correctly visualized publication pipeline.
+4.  Your choices lead you to the final, correctly visualized publication pipeline.
 
 ## Team Contributions
 *   **Franciszek Karpiński**: UI developement, overall logic developement, code developement
