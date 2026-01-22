@@ -1,0 +1,2 @@
+setuptools==72.1.0
+shiny==1.5.1
