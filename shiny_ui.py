@@ -1388,6 +1388,7 @@ def screen_success(can_back: bool):
             src="yay.jpg",
             style="max-width: 300px; height: auto; margin-top: 10px;",
         ),
+        ui.p("Check out your work - open file \"Analysis_pipeline.qmd\" and browse through the analysis!"),
         ui.div(
             ui.input_action_button("restart", "Back to main menu"),
             style="text-align: center; margin: 20px 0;"
