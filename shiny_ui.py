@@ -1311,12 +1311,14 @@ def screen_step12(can_back: bool):
         ui.div(
             ui.div(
                 ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    ui.img(src="picture_q121.jpg", style="max-height: 220px; width: auto;"),
                     style="""
                         height: 220px;
+                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        margin: 5px;
                     """
                 ),
                 ui.p(
@@ -1325,7 +1327,7 @@ def screen_step12(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 121px;
                         overflow: auto;
                     """
                 ),
@@ -1340,12 +1342,14 @@ def screen_step12(can_back: bool):
             ),
             ui.div(
                 ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    ui.img(src="picture_q122.jpg", style="max-height: 220px; width: auto;"),
                     style="""
                         height: 220px;
+                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        margin: 5px;
                     """
                 ),
                 ui.p(
@@ -1354,7 +1358,7 @@ def screen_step12(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 121px;
                         overflow: auto;
                     """
                 ),
