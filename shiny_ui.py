@@ -635,13 +635,8 @@ def screen_step2(can_back: bool):
 
 def screen_step3(can_back: bool):
     return ui.div(
-        ui.h3(
-            "3) In order to find interesting data you:",
-            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
-        ),
-
         ui.div(
-            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            ui.img(src="picture_q3.jpg", style="max-height: 280px; width: auto;"),
             style="""
                 height: 300px;
                 display: flex;
@@ -649,6 +644,11 @@ def screen_step3(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 10px auto;
             """
+        ),
+
+        ui.h3(
+            "3) In order to find interesting data you:",
+            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
 
         ui.div(
@@ -659,11 +659,11 @@ def screen_step3(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 98px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick5", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick5", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -679,11 +679,11 @@ def screen_step3(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 98px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick6", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick6", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -699,6 +699,7 @@ def screen_step3(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 40px auto;
                 max-width: 700px;
+                margin-top: 30px;
             """
         ),
 
