@@ -494,21 +494,22 @@ def screen_step1(can_back: bool):
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
         ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+        ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Write an introduction where you explain your motivation and give some background regarding the data.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -524,20 +525,11 @@ def screen_step1(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Get straight to work - don’t waste time on text that nobody reads anyways.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -557,36 +549,40 @@ def screen_step1(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
-
+    
 def screen_step2(can_back: bool):
     return ui.div(
         ui.h3(
             "2) You want to be able to reproduce the pipeline on other devices as well as be able to share it with your colleagues. In order to do so:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumber_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "You include a set seed and session info in the code.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -602,20 +598,11 @@ def screen_step2(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "You write the code simultaneously on 3 devices and omit any additional info in the paper.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -635,36 +622,41 @@ def screen_step2(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
-    
+
+
 def screen_step3(can_back: bool):
     return ui.div(
         ui.h3(
             "3) In order to find interesting data you:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Generate a synthetic dataset that mimics The Cancer Genome Atlas because your network only allows you to do so.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -680,20 +672,11 @@ def screen_step3(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Visit linked.in and ask your network where to obtain the data from.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -713,13 +696,15 @@ def screen_step3(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
+
 
 def screen_step4(can_back: bool):
     return ui.div(
@@ -727,22 +712,25 @@ def screen_step4(can_back: bool):
             "4) You obtained the data. The first thing that comes to your mind is to:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumber_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Start the work by generating several boxplots and trying to look for clues.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -758,20 +746,11 @@ def screen_step4(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "You visualize the first few rows of your data and look for missing values.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -791,13 +770,15 @@ def screen_step4(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
+
 
 def screen_step5(can_back: bool):
     return ui.div(
@@ -805,22 +786,25 @@ def screen_step5(can_back: bool):
             "5) You were able to catch and take care of any null values. What you want to do now is:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Give up because the missing values completely ruined your mood.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -836,20 +820,11 @@ def screen_step5(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Prepare basic summary statistics to better grasp the data.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -869,10 +844,11 @@ def screen_step5(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
@@ -961,22 +937,25 @@ def screen_step7(can_back: bool):
             "7) To ensure your plots are uniform you:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Perform standardisation and scale the values to Z-score.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -992,20 +971,11 @@ def screen_step7(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Don’t care about such issues - in worst case your plots will be harder to read without glasses.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1025,10 +995,11 @@ def screen_step7(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
@@ -1040,22 +1011,25 @@ def screen_step8(can_back: bool):
             "8) To examine correlation analysis you:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumber_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Calculate t-student test.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1071,20 +1045,11 @@ def screen_step8(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Calculate Spearman correlation.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1104,10 +1069,11 @@ def screen_step8(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
@@ -1119,22 +1085,25 @@ def screen_step9(can_back: bool):
             "9) You obtained negative correlation - what do you do:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Discard the results - negative p-value is a mathematical error",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1150,20 +1119,11 @@ def screen_step9(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Accept the results - negative p-value suggests potential epigenetic silencing.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1172,10 +1132,10 @@ def screen_step9(can_back: bool):
                 ui.input_action_button("pick18", "b)", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 12px;
-                        text-align: center;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 12px;
+                    text-align: center;
                 """
             ),
             style="""
@@ -1183,10 +1143,11 @@ def screen_step9(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
@@ -1275,22 +1236,25 @@ def screen_step11(can_back: bool):
             "11) To support the unusual UpSet plot you:",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
+        ui.div(
+            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            style="""
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+
         ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Rely on the reader’s ability to google new things.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1306,20 +1270,11 @@ def screen_step11(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Include a supportive interpretation below.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
                         height: 110px;
                         overflow: auto;
@@ -1339,10 +1294,11 @@ def screen_step11(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
             """
         ),
+
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
