@@ -1230,20 +1230,20 @@ def screen_step10(can_back: bool):
 
 def screen_step11(can_back: bool):
     return ui.div(
-        ui.h3(
-            "11) To support the unusual UpSet plot you:",
-            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
-        ),
-
         ui.div(
-            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            ui.img(src="picture_q11.jpg", style="max-height: 250px; width: auto;"),
             style="""
-                height: 300px;
+                height: 280px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin: 20px auto 10px auto;
             """
+        ),
+
+        ui.h3(
+            "11) To support the unusual UpSet plot you:",
+            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
 
         ui.div(
@@ -1254,7 +1254,7 @@ def screen_step11(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 52px;
                         overflow: auto;
                     """
                 ),
@@ -1274,7 +1274,7 @@ def screen_step11(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 52px;
                         overflow: auto;
                     """
                 ),
@@ -1294,13 +1294,14 @@ def screen_step11(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 40px auto;
                 max-width: 700px;
+                margin-top: 30px;
             """
         ),
 
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
-
+    
 def screen_step12(can_back: bool):
     return ui.div(
         ui.h3(
