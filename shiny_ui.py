@@ -1168,23 +1168,24 @@ def screen_step10(can_back: bool):
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
         ui.div(
+            ui.img(src="picture_q10.jpg", style="max-height: 250px; width: auto;"),
+            style="""
+                height: 280px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto 10px auto;
+            """
+        ),
+        ui.div(
             ui.div(
-                ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Use UpSet plot as it is more read-friendly and supports bigger sets of data.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
@@ -1198,22 +1199,13 @@ def screen_step10(can_back: bool):
                 """
             ),
             ui.div(
-                ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
-                    style="""
-                        height: 220px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    """
-                ),
                 ui.p(
                     "Draw Venn diagram - reading from overlapping circles is easier and you can even colour them differently.",
                     style="""
                         margin: 0;
-                        max-width: 260px;
+                        max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
@@ -1231,8 +1223,9 @@ def screen_step10(can_back: bool):
                 grid-template-columns: 1fr 1fr;
                 gap: 60px;
                 justify-content: center;
-                margin: 40px auto;
+                margin: 20px auto 40px auto;
                 max-width: 700px;
+                margin-top: 30px;
             """
         ),
         back_btn(can_back),
