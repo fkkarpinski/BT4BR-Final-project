@@ -485,10 +485,6 @@ def screen_intro8():
         """
     )
 
-
-# -------------------------
-# GAME STEPS (no topic)
-# -------------------------
 def screen_step1(can_back: bool):
     return ui.div(
         ui.h3(
