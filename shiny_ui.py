@@ -74,7 +74,7 @@ def screen_main():
     return ui.div(
         ui.div(
             ui.img(
-                src="dumb_cat.jpg",
+                src="picture_main.jpg",
                 style="max-width: 300px; height: auto;"
             ),
             style="text-align: center; margin: 20px 0;"
