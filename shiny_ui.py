@@ -489,13 +489,14 @@ def screen_intro8():
 def screen_step1(can_back: bool):
     return ui.div(
         ui.h3(
-            "1) You are interested in cancer gene expression - this is the focus of your work. "
+            "1) You are interested in cancer gene expression - this is the focus of your paper. "
             "You want to prepare an exploratory analysis and a universal pipeline to help in your future works. "
             "How will you begin?",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
+
         ui.div(
-            ui.img(src="dumb_cat.jpg", style="max-width: 280px; height: 280px;"),
+            ui.img(src="picture_q1.jpg", style="max-height: 280px; width: auto;"),
             style="""
                 height: 300px;
                 display: flex;
@@ -504,6 +505,7 @@ def screen_step1(can_back: bool):
                 margin: 20px auto 10px auto;
             """
         ),
+
         ui.div(
             ui.div(
                 ui.p(
@@ -512,7 +514,7 @@ def screen_step1(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
@@ -532,7 +534,7 @@ def screen_step1(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
