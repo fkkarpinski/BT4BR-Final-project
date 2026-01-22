@@ -561,13 +561,8 @@ def screen_step1(can_back: bool):
     
 def screen_step2(can_back: bool):
     return ui.div(
-        ui.h3(
-            "2) You want to be able to reproduce the pipeline on other devices as well as be able to share it with your colleagues. In order to do so:",
-            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
-        ),
-
         ui.div(
-            ui.img(src="dumber_cat.jpg", style="max-width: 280px; height: 280px;"),
+            ui.img(src="picture_q2.jpg", style="max-height: 280px; width: auto;"),
             style="""
                 height: 300px;
                 display: flex;
@@ -575,6 +570,11 @@ def screen_step2(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 10px auto;
             """
+        ),
+
+        ui.h3(
+            "2) You want to be able to reproduce the pipeline on other devices as well as be able to share it with your colleagues. In order to do so:",
+            style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
         ),
 
         ui.div(
@@ -585,11 +585,11 @@ def screen_step2(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick3", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick3", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -605,11 +605,11 @@ def screen_step2(can_back: bool):
                         margin: 0;
                         max-width: 300px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick4", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick4", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -625,6 +625,7 @@ def screen_step2(can_back: bool):
                 justify-content: center;
                 margin: 20px auto 40px auto;
                 max-width: 700px;
+                margin-top: 30px;
             """
         ),
 
