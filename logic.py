@@ -57,7 +57,7 @@ def reset(history, intro_seen):
 def bind_events(input, history, intro_seen):
     def reject():
         ui.notification_show(
-            "Peer review: rejected (wrong choice). Try again.",
+            "Are you sure? Try again.",
             type="error",
             duration=3,
         )

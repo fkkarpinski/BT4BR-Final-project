@@ -489,7 +489,7 @@ def screen_intro8():
 def screen_step1(can_back: bool):
     return ui.div(
         ui.h3(
-            "1) You are interested in cancer gene expression - this is the focus of your paper. "
+            "1) You are interested in cancer gene expression - this is the focus of your work. "
             "You want to prepare an exploratory analysis and a universal pipeline to help in your future works. "
             "How will you begin?",
             style="max-width: 900px; margin: 0 auto; white-space: pre-line;"
