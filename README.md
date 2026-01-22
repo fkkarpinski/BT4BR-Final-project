@@ -55,6 +55,14 @@ To run this project locally, you need R and the required packages.
 *   **Natalia Charzewska**: UI visual design, interface aesthetics improvement, preparation of visual assets
 *   **Agata Leszczak**: Pipeline developement, Data Visualization & Documentation**. Made the R analysis code, created synthetic data, implemented statistical tests (Wilcoxon, Spearman), and generated all figures (boxplots, heatmap, scatter plot, UpSet plot). Logic developement.
 
+## Acknowledgements
+
+#### Visual Assets Source
+All images used in the application are CC0-licensed and free for unrestricted use.
+
+#### Usage of AI
+Generative AI was used to explain code-related issues and suggest potential improvements.
+
 ## Future improvements
 The interactive interface is a pretty long code. It does not include any sophisticated solutions and the lines come mostly from screen builders which span tens of lines. Thus, the code could use some optimisation, eg. when it comes to unifying the css styles or shortening the space taken by each consecutive screen.
 Another possibility would be to extend the pipeline builder to different topics.
