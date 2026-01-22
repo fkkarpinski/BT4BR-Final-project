@@ -57,3 +57,5 @@ To run this project locally, you need R and the required packages.
 
 ## Future improvements
 The interactive interface is a pretty long code. It does not include any sophisticated solutions and the lines come mostly from screen builders which span tens of lines. Thus, the code could use some optimisation, eg. when it comes to unifying the css styles or shortening the space taken by each consecutive screen.
+Another possibility would be to extend the pipeline builder to different topics.
+A good idea would be to allow to dynamically display the data from the pipeline and include a download/open analysis button at the end to allow the user to instantly see their creation.
