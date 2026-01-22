@@ -862,12 +862,14 @@ def screen_step6(can_back: bool):
         ui.div(
             ui.div(
                 ui.div(
-                    ui.img(src="dumber_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    ui.img(src="picture_q61.jpg", style="max-height: 220px; width: auto;"),
                     style="""
                         height: 220px;
+                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        margin: 10px;
                     """
                 ),
                 ui.p(
@@ -876,11 +878,11 @@ def screen_step6(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick11", "a)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick11", "A", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
@@ -891,12 +893,14 @@ def screen_step6(can_back: bool):
             ),
             ui.div(
                 ui.div(
-                    ui.img(src="dumb_cat.jpg", style="max-width: 250px; height: 250px;"),
+                    ui.img(src="picture_q62.jpg", style="max-height: 220px; width: auto; margin-left: 70px;"),
                     style="""
                         height: 220px;
+                        width: 250px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        margin: 10px;
                     """
                 ),
                 ui.p(
@@ -905,11 +909,11 @@ def screen_step6(can_back: bool):
                         margin: 0;
                         max-width: 260px;
                         white-space: pre-line;
-                        height: 110px;
+                        height: 75px;
                         overflow: auto;
                     """
                 ),
-                ui.input_action_button("pick12", "b)", style="height: 44px; min-width: 80px;"),
+                ui.input_action_button("pick12", "B", style="height: 44px; min-width: 80px;"),
                 style="""
                     display: flex;
                     flex-direction: column;
