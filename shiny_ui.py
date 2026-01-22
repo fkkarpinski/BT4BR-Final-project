@@ -87,12 +87,12 @@ def screen_main():
     )
 
 
-# You are a scientist
+# You are a science student
 def screen_intro1():
     return ui.div(
         ui.div(
             ui.h1(
-                "YOU ARE A\nSCIENTIST",
+                "YOU ARE A SCIENCE STUDENT",
                 style="""
                     font-size: 40px;
                     font-weight: 200;
@@ -301,7 +301,7 @@ def screen_intro5():
         ),
         ui.div(
             ui.h1(
-                "...YOU CAME UP WITH AN IDEA FOR YOUR NEXT RESEARCH",
+                "...YOU CAME UP WITH AN IDEA FOR YOUR ASSIGNMENT",
                 style="""
                     font-size: 40px;
                     font-weight: 200;
@@ -449,7 +449,7 @@ def screen_intro8():
                 """
             ),
             ui.h1(
-                "PUBLICATION",
+                "PROJECT",
                 style="""
                     font-size: 80px;
                     font-weight: 900;
