@@ -1390,7 +1390,6 @@ def screen_success(can_back: bool):
         ),
         ui.div(
             ui.input_action_button("restart", "Back to main menu"),
-            ui.download_button("download_pdf", "Download report (PDF)", class_="btn btn-success"),
             style="text-align: center; margin: 20px 0;"
         ),
         style="text-align: center; margin: 20px 0;",
