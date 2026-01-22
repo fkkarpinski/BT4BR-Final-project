@@ -485,6 +485,7 @@ def screen_intro8():
         """
     )
 
+#All the screen builders
 def screen_step1(can_back: bool):
     return ui.div(
         ui.h3(
@@ -631,7 +632,6 @@ def screen_step2(can_back: bool):
         style="text-align: center; min-height: 100vh;"
     )
 
-
 def screen_step3(can_back: bool):
     return ui.div(
         ui.h3(
@@ -705,7 +705,6 @@ def screen_step3(can_back: bool):
         style="text-align: center; min-height: 100vh;"
     )
 
-
 def screen_step4(can_back: bool):
     return ui.div(
         ui.h3(
@@ -778,7 +777,6 @@ def screen_step4(can_back: bool):
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
-
 
 def screen_step5(can_back: bool):
     return ui.div(
@@ -1004,7 +1002,6 @@ def screen_step7(can_back: bool):
         style="text-align: center; min-height: 100vh;"
     )
 
-
 def screen_step8(can_back: bool):
     return ui.div(
         ui.h3(
@@ -1077,7 +1074,6 @@ def screen_step8(can_back: bool):
         back_btn(can_back),
         style="text-align: center; min-height: 100vh;"
     )
-
 
 def screen_step9(can_back: bool):
     return ui.div(
@@ -1381,6 +1377,7 @@ def screen_step12(can_back: bool):
         style="text-align: center; min-height: 100vh;"
     )
 
+#success screen
 def screen_success(can_back: bool):
     return ui.div(
         ui.h3("SUCCESS"),
@@ -1390,7 +1387,7 @@ def screen_success(can_back: bool):
             style="max-width: 300px; height: auto; margin-top: 10px;",
         ),
         ui.div(
-            ui.input_action_button("restart", "Start again"),
+            ui.input_action_button("restart", "Back to main menu"),
             style="text-align: center; margin: 20px 0;"
         ),
         style="text-align: center; margin: 20px 0;",

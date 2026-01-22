@@ -1,6 +1,7 @@
 from shiny import reactive, ui
 
-INTRO_ORDER = [f"intro{x}" for x in range(1, 9)]
+#collections of long data
+INTRO_ORDER = [f"intro{x}" for x in range(1, 9)] #not faster, just shorter
 
 GAME_FLOW = {
     "step1": ("pick1",  "step2"), 
@@ -31,6 +32,7 @@ def init_state():
     intro_seen = reactive.Value(False)
     return history, intro_seen
 
+#History handling to progress through screens
 def current(history):
     return history.get()[-1]
 
@@ -51,6 +53,7 @@ def pop(history):
 def reset(history, intro_seen):
     history.set(["welcome"])
 
+# Event creators, logic handling
 def bind_events(input, history, intro_seen):
     def reject():
         ui.notification_show(

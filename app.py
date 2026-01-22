@@ -6,6 +6,7 @@ import logic
 
 app_ui = pages.app_ui()
 
+#server activity
 def server(input, output, session):
     history, intro_seen = logic.init_state()
     logic.bind_events(input, history, intro_seen)
@@ -51,5 +52,8 @@ def server(input, output, session):
 
         return ROUTES.get(s, lambda: pages.screen_welcome())()
 
+#line to fix no image bug
 app_dir = Path(__file__).parent
+
+#app
 app = App(app_ui, server, static_assets=app_dir / "www")
