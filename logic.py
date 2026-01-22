@@ -100,8 +100,8 @@ def bind_events(input, history, intro_seen):
                 ui.div(
                     ui.p("1. You are a bioinformatician and your goal is to conduct reproducible research."),
                     ui.p("2. In each step you must make a decision on what to include."),
-                    ui.p("3. Wrong decisions get rejected by peer review."),
-                    ui.p("4. Make the correct choices to publish successfully."),
+                    ui.p("3. Wrong decisions get rejected by the supervising Professor."),
+                    ui.p("4. Make the correct choices to launch successfully."),
                 )
             )
         )
@@ -119,7 +119,7 @@ def bind_events(input, history, intro_seen):
 
         @reactive.effect
         @reactive.event(btn)
-        def _ok(step=step, next_step=next_step):
+        def ok(step=step, next_step=next_step):
             if current(history) == step:
                 push(history, next_step)
 
@@ -130,7 +130,7 @@ def bind_events(input, history, intro_seen):
 
         @reactive.effect
         @reactive.event(btn)
-        def _bad(pick=pick):
+        def bad(pick=pick):
             reject()
 
     @reactive.effect

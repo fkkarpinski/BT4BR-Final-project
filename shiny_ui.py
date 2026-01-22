@@ -4,8 +4,8 @@ def app_ui():
     # how to main window looks like, this is present on all screens
     # throughout the game
     return ui.page_fluid(
-        ui.h1(ui.strong("🧬 placeholder_value")),
-        ui.h2("placeholder_value"),
+        ui.h1(ui.strong("🧑‍🔬🩰 A mile in researcher's shoes")),
+        ui.h2("Interactive bioinformatics pipeline"),
         ui.output_ui("screen"),
     )
 
